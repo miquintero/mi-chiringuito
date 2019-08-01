@@ -47,7 +47,15 @@ chiringuito.inventory = function () {
 // //extra credit time ----> 
 
 chiringuito.sale = function (order) {
-
+  let orderPrice = 0;
+  Object.values(order).forEach(product => {
+    Object.values(product).forEach(item => {
+      orderPrice += item.cost * item.quantity;
+      inventory.product.item.quantity -= item.quantity;
+      inventory.cash += item.cost;
+    });
+  });
+  return orderPrice;
 }
 
 

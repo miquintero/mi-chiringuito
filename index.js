@@ -37,7 +37,11 @@ let chiringuito = {
 // write your code below ---->
 
 chiringuito.inventory = function () {
-
+  let result = 0;
+  Object.values(this).forEach(product => {
+    Object.values(product).forEach(item => result += item.cost * item.quantity);
+  });
+  return result;
 }
 
 // //extra credit time ----> 

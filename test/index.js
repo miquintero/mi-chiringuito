@@ -4,14 +4,15 @@ const chiringuito = require('../index');
 
 describe('chiringuito', () => {
 
-  it('should be an object', () => {
-    (typeof chiringuito).should.eql('object');
-  });
-
   describe('inventory', () => {
 
     it('should be method of chiringuito', () => {
       ('inventory' in chiringuito).should.eql(true);
+    });
+
+    it('should return a number', () => {
+      let returnedValue = chiringuito.inventory();
+      (typeof returnedValue).should.eql('number');
     });
 
     it('should return the correct value of the inventory', () => {
@@ -29,6 +30,5 @@ describe('chiringuito', () => {
     });
 
   });
-
-
+  
 });

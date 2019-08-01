@@ -33,10 +33,18 @@ let chiringuito = {
   cash: 0
 };
 
+
 // write your code below ---->
 
+chiringuito.inventory = function () {
+
+}
+
+// //extra credit time ----> 
+
+chiringuito.sale = function (order) {
+
+}
 
 
 module.exports = chiringuito;
-
-

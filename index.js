@@ -37,13 +37,25 @@ let chiringuito = {
 // write your code below ---->
 
 chiringuito.inventory = function () {
-
+  let result = 0;
+  Object.values(this).forEach(product => {
+    Object.values(product).forEach(item => result += item.cost * item.quantity);
+  });
+  return result;
 }
 
 // //extra credit time ----> 
 
 chiringuito.sale = function (order) {
-
+  let orderPrice = 0;
+  Object.values(order).forEach(product => {
+    Object.values(product).forEach(item => {
+      orderPrice += item.cost * item.quantity;
+      inventory.product.item.quantity -= item.quantity;
+      inventory.cash += item.cost;
+    });
+  });
+  return orderPrice;
 }
 
 

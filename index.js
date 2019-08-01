@@ -37,7 +37,17 @@ let chiringuito = {
 // write your code below ---->
 
 chiringuito.inventory = function () {
-
+  let value = 0;
+  for (key in this) {
+    if (this.hasOwnProperty(key) && key !== 'cash') {
+      for (key1 in this[key]) {
+        if (this.hasOwnProperty(key)) {
+          value += this[key][key1].cost * this[key][key1].quantity;
+        }
+      }
+    } 
+  }
+  return value;
 }
 
 // //extra credit time ----> 

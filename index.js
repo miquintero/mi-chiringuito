@@ -37,7 +37,15 @@ let chiringuito = {
 // write your code below ---->
 
 chiringuito.inventory = function () {
-
+  const inventoryNames = Object.keys(this).filter(key => typeof this[key] === 'object');
+  let sumValue = 0;
+  inventoryNames.forEach(inventoryName => {
+    const inventType = this[inventoryName];
+    Object.keys(inventType).forEach(productName => {
+      sumValue = sumValue + this[inventoryName][productName].quantity * this[inventoryName][productName].cost;
+    })
+  })
+  return sumValue
 }
 
 // //extra credit time ----> 

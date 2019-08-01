@@ -37,7 +37,20 @@ let chiringuito = {
 // write your code below ---->
 
 chiringuito.inventory = function () {
-
+  let value = 0;
+  for (const key in this) {
+    if (this.hasOwnProperty(key)) {
+      const kindOfFood = this[key];
+      for (const key in kindOfFood) {
+        if (kindOfFood.hasOwnProperty(key)) {
+          const component = kindOfFood[key];
+          value += component.cost * component.quantity;
+        }
+      }
+    }
+  }
+  return value;
+  // TODO quontity * cost looping through the object 
 }
 
 // //extra credit time ----> 

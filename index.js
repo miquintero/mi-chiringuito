@@ -37,13 +37,35 @@ let chiringuito = {
 // write your code below ---->
 
 chiringuito.inventory = function () {
-
+  let value = 0;
+  for (key in this) {
+    if (this.hasOwnProperty(key) && key !== 'cash') {
+      for (key1 in this[key]) {
+        if (this.hasOwnProperty(key)) {
+          value += this[key][key1].cost * this[key][key1].quantity;
+        }
+      }
+    }
+  }
+  return value;
 }
 
 // //extra credit time ----> 
 
 chiringuito.sale = function (order) {
-
+  let value = 0;
+  for (key in order) {
+    if (order.hasOwnProperty(key)) {
+      for (key1 in order[key]) {
+        if (order.hasOwnProperty(key)) {
+          value += order[key][key1].cost * order[key][key1].quantity;
+          this[key][key1].quantity -= order[key][key1].quantity;
+          this.cash += order[key][key1].cost
+        }
+      }
+    }
+  }
+  return value;  
 }
 
 
